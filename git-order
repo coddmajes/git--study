@@ -30,7 +30,7 @@ $ rm file_name //直接删除文件，在文件管理器中
 $ git rm file_name //从版本库中删除该文件，命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容
 
 
-$ git remote add origin git@github.com:XXX/repository_name.git //XXX为GitHub账户名，本地关联GitHub的远程库
+$ git remote add origin git@github.com:XXX/repository_name.git //XXX为GitHub账户名，本地关联GitHub的远程库，远程仓库的默认名称是origin
 $ git push -u origin master //初次把本地库的内容推送到远程，将当前分支master推送到远程，由于远程库第一次推送是空的，加上-u参数，git不但会把本地的master分支内容推送到远程新的master分支还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
 $ git push origin master //以后进行推送
 $ git clone git@github.com:XXX/repository_name.git //用命令git clone克隆本地库
@@ -40,7 +40,27 @@ $ git checkout -b branch_name //git checkout命令加上-b参数表示创建并�
     $ git branch dev
     $ git checkout dev //branch代表你要创建并切换的分支名字
 $ git branch //查看当前分支 显示中*表示你当前所在的分支
-$ git merge branch_name //git merge命令用于合并指定分支（branch_name）到当前分支，Fast-forward，也就是直接把master指向dev的当前提交
+$ git merge branch_name //git merge命令用于合并指定分支（branch_name）到当前分支，Fast-forward，也就是直接把master指向dev的当前提交，但这种模式下，删除分支后，会丢掉分支信息
+$ git merge —no-ff -m “” branch_name //表示合并branch_name分支，禁用Fast-forward，因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
 $ git branch -d branch_name //删除当前分支
 
+
+$git log —-graph —-pretty=oneline —-abbrev-commit //用带参数的git log也查看分支的合并情况，分支的合并出现冲突，如何解决，如果切换到branch_name分支时，在文件中进行了相应的修改并提交确认了，接着在master分支时，又在文件中进行了相应的修改而且也提交确认了。此种情况下，想将branch_name分支合并至master分支时，将会出现冲突。此种情况下，Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容。可以在修改文件内容，解决冲突的情况下，进行合并。用git log --graph命令可以看到分支合并图
+
+
+$ git stash //把当前工作现场“储藏”起来，等之后恢复现场后继续工作
+$ git stash list //查看工作现场
+$ git stash pop //将暂存的工作现场恢复，恢复的同时把stash内容也删了
+$ git stash apply stash@{id} //用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除
+
+$ git branch -D branch_name //强行删除分支，如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除
+
+
+$ git remote //用来查看远程库的信息
+$ git remote -v //显示更加详细的信息
+$ git push origin branch_name //推送指定分支
+	master分支是主分支，因此要时刻与远程同步；
+	dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+	bug分支只用于在本地修复bug，就没必要推到远程了；
+	feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
 
