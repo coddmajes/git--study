@@ -7,6 +7,7 @@ $ cd repository_name //查看目录
 $ pwd //用于显示当前目录
 $ git init //将这个目录变成Git可以管理的仓库
 $ ls -ah //用于显示隐藏的目录 .git
+$ gedit/cat file_name //可用于打开文件查看
 
 
 $ git add file_name //将文件放入git仓库，注意file必须是在repository_name的目录下，实际上就是把文件修改添加到暂存区
