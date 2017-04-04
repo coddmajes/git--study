@@ -31,7 +31,7 @@ $ rm file_name //直接删除文件，在文件管理器中
 $ git rm file_name //从版本库中删除该文件，命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容
 
 
-$ git remote add origin git@github.com:XXX/repository_name.git //XXX为GitHub账户名，本地关联GitHub的远程库，远程仓库的默认名称是origin
+$ git remote add origin git@github.com:XXX/repository_name.git //XXX为GitHub账户名，本地关联GitHub的远程库，远程仓库的默认名称是origin，注意必须是在本地已经创建好仓库的前提下，在当前仓库的目录下进行如前的命令行
 $ git push -u origin master //初次把本地库的内容推送到远程，将当前分支master推送到远程，由于远程库第一次推送是空的，加上-u参数，git不但会把本地的master分支内容推送到远程新的master分支还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
 $ git push origin master //以后进行推送
 $ git clone git@github.com:XXX/repository_name.git //用命令git clone克隆本地库
