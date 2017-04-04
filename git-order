@@ -36,6 +36,8 @@ $ git push -u origin master //初次把本地库的内容推送到远程，将�
 $ git push origin master //以后进行推送
 $ git clone git@github.com:XXX/repository_name.git //用命令git clone克隆远程库，默认是克隆master，可以checkout 
 $ git clone -b branch_name //单独克隆某个分支
+$ git checkout -b branch_name origin/branch_name //从远程直接pull分支到本地，不需要在本地先创建分支
+
 
 $ git checkout -b branch_name //git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
     $ git branch dev
