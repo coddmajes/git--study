@@ -26,7 +26,15 @@ $ git reset --hard commit_id //指定回到未来的某个版本，即当你处�
 $ git reflog //用于记录你的每一次命令
 $ git checkout -- file_name //把文件在工作区的修改全部撤销，A，文件自修改后还没有被放到暂存区，现在，撤销修改就会到和版本库一模一样的状态；B，文件已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。总之，让这个文件回到最近一次git add 或是git commit的状态
 
+//重命名某个远程分支，实际上先删除远程分支，然后重命名本地分支，再重新提交一个远程分支
+$ git branch -av 
+$ git push --delete origin [原始远程分支名]
+$ git branch -m new_branch_name
+$ git push origin new_branch_name
 
+
+
+$ git 
 $ rm file_name //直接删除文件，在文件管理器中
 $ git rm file_name //从版本库中删除该文件，命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容
 
