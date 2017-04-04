@@ -34,8 +34,8 @@ $ git rm file_name //从版本库中删除该文件，命令git rm用于删除�
 $ git remote add origin git@github.com:XXX/repository_name.git //XXX为GitHub账户名，本地关联GitHub的远程库，远程仓库的默认名称是origin，注意必须是在本地已经创建好仓库的前提下，在当前仓库的目录下进行如前的命令行
 $ git push -u origin master //初次把本地库的内容推送到远程，将当前分支master推送到远程，由于远程库第一次推送是空的，加上-u参数，git不但会把本地的master分支内容推送到远程新的master分支还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
 $ git push origin master //以后进行推送
-$ git clone git@github.com:XXX/repository_name.git //用命令git clone克隆本地库
-
+$ git clone git@github.com:XXX/repository_name.git //用命令git clone克隆远程库，默认是克隆master，可以checkout 
+$ git clone -b branch_name //单独克隆某个分支
 
 $ git checkout -b branch_name //git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
     $ git branch dev
